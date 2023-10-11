@@ -16,4 +16,9 @@ public class UserService {
         //Send confirmation email
         emailService.sendEmail(email, "Welcome to our platform!");
     }
+
+    public String detail(User user) {
+        String message = "Thank you " + user.getUsername() + " for the request";
+        return message;
+    }
 }
