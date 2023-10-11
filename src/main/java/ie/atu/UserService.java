@@ -1,5 +1,4 @@
 package ie.atu;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ public class UserService {
     }
 
     public void registerUser(String username, String email) {
-        //some user registration logic 
+        //some user registration logic
         //Send confirmation email
         emailService.sendEmail(email, "Welcome to our platform!");
     }
