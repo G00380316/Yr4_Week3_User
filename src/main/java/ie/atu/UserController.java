@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "account")
 public class UserController {
 
-    private final UserService users;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserService users) {
-        this.users = users;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/registerUser/{username}/{email}")
-    public void getNewUser(@PathVariable("username")String username, @PathVariable("email")String email) {
-        users.registerUser(username, email);
+    public String getNewUser(@PathVariable("username")String username, @PathVariable("email")String email) {
+        userService.registerUser(username, email);
+        return userService.getEmail(email);
     }
 }

@@ -13,7 +13,17 @@ public class UserService {
 
     public void registerUser(String username, String email) {
         //some user registration logic
-        //Send confirmation email
-        emailService.sendEmail(email, "Welcome to our platform!");
+        if (username.length() < 3) {
+            return;
+        } else if (!email.contains("@")) {
+            return;
+        } else {
+            //Send confirmation email
+            getEmail(email);
+        }
+    }
+    
+    public String getEmail(String email) {
+        return emailService.sendEmail(email, "Welcome to our platform!");
     }
 }
